@@ -9,6 +9,7 @@ import lombok.Setter;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 @Getter
 @Setter
@@ -17,11 +18,24 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class UsuarioResponseDTO {
 
+    @Schema(description = "ID do usuário", example = "1")
     private Long id;
+
+    @Schema(description = "Nome completo do usuário", example = "Maria Silva")
     private String nome;
+
+    @Schema(description = "E-mail do usuário", example = "maria.silva@email.com")
     private String email;
+
+    @Schema(description = "Login utilizado para autenticação", example = "maria.silva")
     private String login;
+
+    @Schema(description = "Tipo do usuário")
     private TipoUsuario tipoUsuario;
+
+    @Schema(description = "Endereço do usuário")
     private EnderecoDTO endereco;
+
+    @Schema(description = "Data e hora da última alteração dos dados do usuário")
     private LocalDateTime dataUltimaAlteracao;
 }
