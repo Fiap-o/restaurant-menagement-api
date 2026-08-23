@@ -67,10 +67,4 @@ public class UsuarioController {
     public ResponseEntity<List<UsuarioResponseDTO>> buscarPorNome(@RequestParam String nome) {
         return ResponseEntity.ok(usuarioService.buscarPorNome(nome));
     }
-
-    @PostMapping("/login")
-    public ResponseEntity<Void> validarLogin(@Valid @RequestBody LoginDTO dto) {
-        usuarioService.validarLogin(dto);
-        return ResponseEntity.ok().build();
-    }
 }

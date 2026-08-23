@@ -12,5 +12,4 @@ public interface UsuarioService {
     void excluir(Long id);
     UsuarioResponseDTO buscarPorId(Long id);
     List<UsuarioResponseDTO> buscarPorNome(String nome);
-    boolean validarLogin(LoginDTO dto);
 }

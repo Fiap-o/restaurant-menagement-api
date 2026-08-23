@@ -94,17 +94,6 @@ public class UsuarioServiceImpl implements UsuarioService {
                 .toList();
     }
 
-    @Override
-    public boolean validarLogin(LoginDTO dto) {
-        Usuario usuario = usuarioRepository.findByLogin(dto.getLogin())
-                .orElseThrow(CredenciaisInvalidasException::new);
-
-        if (!passwordEncoder.matches(dto.getSenha(), usuario.getSenha())) {
-            throw new CredenciaisInvalidasException();
-        }
-        return true;
-    }
-
     private Usuario buscarEntidadePorId(Long id) {
         return usuarioRepository.findById(id)
                 .orElseThrow(() -> new UsuarioNaoEncontradoException(id));
