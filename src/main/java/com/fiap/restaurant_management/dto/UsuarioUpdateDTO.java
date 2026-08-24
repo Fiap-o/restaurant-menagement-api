@@ -16,16 +16,16 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @AllArgsConstructor
 public class UsuarioUpdateDTO {
 
-    @Schema(description = "Nome completo do usuário", example = "Maria Silva")
+    @Schema(description = "Nome completo do usuário", example = "Sophia Amaral Silva")
     @NotBlank(message = "Nome é obrigatório")
     private String nome;
 
-    @Schema(description = "E-mail do usuário", example = "maria.silva@email.com")
+    @Schema(description = "E-mail do usuário", example = "sophia.asilva@email.com")
     @NotBlank(message = "E-mail é obrigatório")
     @Email(message = "E-mail inválido")
     private String email;
 
-    @Schema(description = "Login utilizado para autenticação", example = "maria.silva")
+    @Schema(description = "Login utilizado para autenticação", example = "sophia.asilva")
     @NotBlank(message = "Login é obrigatório")
     private String login;
 

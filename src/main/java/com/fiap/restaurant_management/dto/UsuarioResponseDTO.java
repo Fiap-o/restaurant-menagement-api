@@ -21,13 +21,13 @@ public class UsuarioResponseDTO {
     @Schema(description = "ID do usuário", example = "1")
     private Long id;
 
-    @Schema(description = "Nome completo do usuário", example = "Maria Silva")
+    @Schema(description = "Nome completo do usuário", example = "Sophia Amaral Silva")
     private String nome;
 
-    @Schema(description = "E-mail do usuário", example = "maria.silva@email.com")
+    @Schema(description = "E-mail do usuário", example = "sophia.asilva@email.com")
     private String email;
 
-    @Schema(description = "Login utilizado para autenticação", example = "maria.silva")
+    @Schema(description = "Login utilizado para autenticação", example = "sophia.asilva")
     private String login;
 
     @Schema(description = "Tipo do usuário")

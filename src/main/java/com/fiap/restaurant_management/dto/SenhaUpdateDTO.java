@@ -13,11 +13,11 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @AllArgsConstructor
 public class SenhaUpdateDTO {
 
-    @Schema(description = "Senha atual do usuário", example = "SenhaForte123")
+    @Schema(description = "Senha atual do usuário", example = "SenhaFort387542")
     @NotBlank(message = "Senha atual é obrigatória")
     private String senhaAtual;
 
-    @Schema(description = "Nova senha do usuário", example = "NovaSenhaForte456")
+    @Schema(description = "Nova senha do usuário", example = "NovaSenhaFort387542")
     @NotBlank(message = "Nova senha é obrigatória")
     private String novaSenha;
 }

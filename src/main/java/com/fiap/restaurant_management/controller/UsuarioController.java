@@ -122,7 +122,7 @@ public class UsuarioController {
     })
     @GetMapping
     public ResponseEntity<List<UsuarioResponseDTO>> buscarPorNome(
-            @Parameter(description = "Nome ou parte do nome do usuário", example = "Maria") @RequestParam String nome) {
+            @Parameter(description = "Nome ou parte do nome do usuário", example = "Sophia") @RequestParam String nome) {
         return ResponseEntity.ok(usuarioService.buscarPorNome(nome));
     }
 

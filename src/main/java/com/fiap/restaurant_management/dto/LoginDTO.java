@@ -13,11 +13,11 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @AllArgsConstructor
 public class LoginDTO {
 
-    @Schema(description = "Login do usuário", example = "maria.silva")
+    @Schema(description = "Login do usuário", example = "sophia.asilva")
     @NotBlank(message = "Login é obrigatório")
     private String login;
 
-    @Schema(description = "Senha do usuário", example = "SenhaForte123")
+    @Schema(description = "Senha do usuário", example = "SenhaFort387542")
     @NotBlank(message = "Senha é obrigatória")
     private String senha;
 }

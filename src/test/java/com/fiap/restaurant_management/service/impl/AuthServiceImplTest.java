@@ -44,14 +44,14 @@ class AuthServiceImplTest {
 
     @Test
     void login_deveRetornarToken_quandoCredenciaisValidas() {
-        LoginDTO dto = new LoginDTO("joaosilva", "senha123");
+        LoginDTO dto = new LoginDTO("sophia.asilva", "senhateste54587");
         UserDetails userDetails = User.builder()
-                .username("joaosilva")
+                .username("sophia.asilva")
                 .password("hash")
                 .authorities("ROLE_CLIENTE")
                 .build();
 
-        given(usuarioDetailsService.loadUserByUsername("joaosilva")).willReturn(userDetails);
+        given(usuarioDetailsService.loadUserByUsername("sophia.asilva")).willReturn(userDetails);
         given(jwtService.generateToken(userDetails)).willReturn("token-gerado");
 
         TokenResponseDTO resultado = authService.login(dto);
@@ -62,7 +62,7 @@ class AuthServiceImplTest {
 
     @Test
     void login_deveLancarCredenciaisInvalidas_quandoAutenticacaoFalha() {
-        LoginDTO dto = new LoginDTO("joaosilva", "senhaErrada");
+        LoginDTO dto = new LoginDTO("sophia.asilva", "senhaErradateste2145");
 
         willThrow(new BadCredentialsException("Bad credentials"))
                 .given(authenticationManager)

@@ -12,7 +12,7 @@ Backend do **Tech Challenge — Fase 1** (Pós Tech Arquitetura e Desenvolviment
 - Java 17
 - Spring Boot 4.1.0
 - Spring Data JPA / Hibernate
-- Spring Security + JWT (`jjwt`)
+- Spring Security + JWT 
 - PostgreSQL 16
 - springdoc-openapi (Swagger / OpenAPI 3)
 - Docker & Docker Compose
@@ -139,12 +139,12 @@ Ou, pela IDE, clique no ícone ▶️ ao lado da classe de teste (`src/test/java
 ```
 src/main/java/com/fiap/restaurant_management/
 ├── config/          # Configuração de segurança (Spring Security)
-├── controller/       # Controllers REST (Usuario, Auth)
-├── dto/               # DTOs de requisição e resposta
-├── entities/          # Entidades JPA (Usuario, Endereco, TipoUsuario)
-├── exception/         # Exceções de domínio e handler global (ProblemDetail)
-├── mapper/            # Conversão entre entidades e DTOs
-├── repositories/       # Repositórios Spring Data JPA
-├── security/           # Filtro e serviço JWT
-└── service/            # Regras de negócio (interfaces + implementações)
+├── controller/      # Controllers REST (Usuario, Auth)
+├── dto/             # DTOs de requisição e resposta
+├── entities/        # Entidades JPA (Usuario, Endereco, TipoUsuario)
+├── exception/       # Exceções de domínio e handler global (ProblemDetail)
+├── mapper/          # Conversão entre entidades e DTOs
+├── repositories/    # Repositórios Spring Data JPA
+├── security/        # Filtro e serviço JWT
+└── service/         # Regras de negócio (interfaces + implementações)
 ```

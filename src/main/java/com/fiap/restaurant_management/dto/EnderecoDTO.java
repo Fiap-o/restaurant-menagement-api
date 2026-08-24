@@ -13,11 +13,11 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @AllArgsConstructor
 public class EnderecoDTO {
 
-    @Schema(description = "Nome da rua", example = "Rua das Flores")
+    @Schema(description = "Nome da rua", example = "Rua Coronel Joaquim Ferreira de Souza")
     @NotBlank(message = "Rua é obrigatória")
     private String rua;
 
-    @Schema(description = "Número do imóvel", example = "123")
+    @Schema(description = "Número do imóvel", example = "541")
     @NotBlank(message = "Número é obrigatório")
     private String numero;
 
@@ -25,7 +25,7 @@ public class EnderecoDTO {
     @NotBlank(message = "Cidade é obrigatória")
     private String cidade;
 
-    @Schema(description = "CEP", example = "01310-100")
+    @Schema(description = "CEP", example = "02419-070")
     @NotBlank(message = "CEP é obrigatório")
     private String cep;
 }

@@ -52,23 +52,23 @@ class UsuarioServiceImplTest {
     private Usuario usuarioExistente() {
         return Usuario.builder()
                 .id(1L)
-                .nome("João Silva")
-                .email("joao.silva@email.com")
-                .login("joaosilva")
-                .senha("hash-antigo")
+                .nome("Sophia Amaral Silva")
+                .email("sophia.asilva@email.com")
+                .login("sophia.asilva")
+                .senha("SenhaFort387542")
                 .tipoUsuario(TipoUsuario.CLIENTE)
-                .endereco(new Endereco("Rua das Flores", "123", "São Paulo", "01001-000"))
+                .endereco(new Endereco("Rua Coronel Joaquim Ferreira de Souza", "541", "São Paulo", "02419-070"))
                 .build();
     }
 
     private UsuarioCreateDTO createDTOValido() {
         return new UsuarioCreateDTO(
-                "João Silva",
-                "joao.silva@email.com",
-                "joaosilva",
-                "senha123",
+                "Sophia Amaral Silv",
+                "sophia.asilva@email.com",
+                "sophia.asilva",
+                "SenhaFort387542",
                 TipoUsuario.CLIENTE,
-                new EnderecoDTO("Rua das Flores", "123", "São Paulo", "01001-000"));
+                new EnderecoDTO("Rua Coronel Joaquim Ferreira de Souza", "541", "São Paulo", "02419-070"));
     }
 
     @Test
@@ -76,7 +76,7 @@ class UsuarioServiceImplTest {
         UsuarioCreateDTO dto = createDTOValido();
         given(usuarioRepository.existsByEmail(dto.getEmail())).willReturn(false);
         given(usuarioRepository.findByLogin(dto.getLogin())).willReturn(Optional.empty());
-        given(passwordEncoder.encode(dto.getSenha())).willReturn("senha-hash");
+        given(passwordEncoder.encode(dto.getSenha())).willReturn("SenhaFort387542");
         given(usuarioRepository.save(any(Usuario.class))).willAnswer(invocation -> {
             Usuario usuario = invocation.getArgument(0);
             usuario.setId(1L);
@@ -91,7 +91,7 @@ class UsuarioServiceImplTest {
 
         ArgumentCaptor<Usuario> captor = ArgumentCaptor.forClass(Usuario.class);
         verify(usuarioRepository).save(captor.capture());
-        assertThat(captor.getValue().getSenha()).isEqualTo("senha-hash");
+        assertThat(captor.getValue().getSenha()).isEqualTo("SenhaFort387542");
     }
 
     @Test
@@ -123,18 +123,18 @@ class UsuarioServiceImplTest {
     void atualizarDados_deveAtualizarComSucesso() {
         Usuario existente = usuarioExistente();
         UsuarioUpdateDTO dto = new UsuarioUpdateDTO(
-                "João Silva Santos",
+                "Sophia Amaral Silva",
                 existente.getEmail(),
                 existente.getLogin(),
-                new EnderecoDTO("Rua Nova", "456", "São Paulo", "01002-000"));
+                new EnderecoDTO("Rua Coronel Joaquim Ferreira de Souza", "541", "São Paulo", "02419-070"));
 
         given(usuarioRepository.findById(1L)).willReturn(Optional.of(existente));
         given(usuarioRepository.save(any(Usuario.class))).willAnswer(invocation -> invocation.getArgument(0));
 
         UsuarioResponseDTO resultado = usuarioService.atualizarDados(1L, dto);
 
-        assertThat(resultado.getNome()).isEqualTo("João Silva Santos");
-        assertThat(resultado.getEndereco().getRua()).isEqualTo("Rua Nova");
+        assertThat(resultado.getNome()).isEqualTo("Sophia Amaral Silva");
+        assertThat(resultado.getEndereco().getRua()).isEqualTo("Rua Coronel Joaquim Ferreira de Souza");
     }
 
     @Test
@@ -172,13 +172,13 @@ class UsuarioServiceImplTest {
 
         given(usuarioRepository.findById(1L)).willReturn(Optional.of(existente));
         given(passwordEncoder.matches("senhaAtual", existente.getSenha())).willReturn(true);
-        given(passwordEncoder.encode("novaSenha")).willReturn("nova-senha-hash");
+        given(passwordEncoder.encode("novaSenha")).willReturn("nova-senha-1");
 
         usuarioService.atualizarSenha(1L, dto);
 
         ArgumentCaptor<Usuario> captor = ArgumentCaptor.forClass(Usuario.class);
         verify(usuarioRepository).save(captor.capture());
-        assertThat(captor.getValue().getSenha()).isEqualTo("nova-senha-hash");
+        assertThat(captor.getValue().getSenha()).isEqualTo("nova-senha-1");
     }
 
     @Test
@@ -222,7 +222,7 @@ class UsuarioServiceImplTest {
         UsuarioResponseDTO resultado = usuarioService.buscarPorId(1L);
 
         assertThat(resultado.getId()).isEqualTo(1L);
-        assertThat(resultado.getLogin()).isEqualTo("joaosilva");
+        assertThat(resultado.getLogin()).isEqualTo("sophia.asilva");
     }
 
     @Test
@@ -235,12 +235,12 @@ class UsuarioServiceImplTest {
 
     @Test
     void buscarPorNome_deveRetornarListaDeUsuarios() {
-        given(usuarioRepository.findByNomeContainingIgnoreCase("João"))
+        given(usuarioRepository.findByNomeContainingIgnoreCase("Sophia"))
                 .willReturn(List.of(usuarioExistente()));
 
-        List<UsuarioResponseDTO> resultado = usuarioService.buscarPorNome("João");
+        List<UsuarioResponseDTO> resultado = usuarioService.buscarPorNome("Sophia");
 
         assertThat(resultado).hasSize(1);
-        assertThat(resultado.get(0).getNome()).isEqualTo("João Silva");
+        assertThat(resultado.get(0).getNome()).isEqualTo("Sophia Amaral Silva");
     }
 }
