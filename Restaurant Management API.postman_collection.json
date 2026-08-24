@@ -1,26 +1,11 @@
 {
   "info": {
+    "_postman_id": "1c1365ba-be58-4d40-a91c-c3a7c6735089",
     "name": "Restaurant Management API",
     "description": "Coleção de testes para o Tech Challenge Fase 1 - Gestão de Usuários",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "38383084"
   },
-  "variable": [
-    {
-      "key": "baseUrl",
-      "value": "http://localhost:8080",
-      "type": "string"
-    },
-    {
-      "key": "token",
-      "value": "",
-      "type": "string"
-    },
-    {
-      "key": "usuarioId",
-      "value": "",
-      "type": "string"
-    }
-  ],
   "item": [
     {
       "name": "1. Cadastro de Usuário",
@@ -48,25 +33,37 @@
                   "    pm.collectionVariables.set(\"usuarioId\", jsonData.id);",
                   "}"
                 ],
-                "type": "text/javascript"
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
               }
             }
           ],
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/json" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"nome\": \"João Silva\",\n  \"email\": \"joao.silva@email.com\",\n  \"login\": \"joaosilva\",\n  \"senha\": \"senha123\",\n  \"tipoUsuario\": \"CLIENTE\",\n  \"endereco\": {\n    \"rua\": \"Rua das Flores\",\n    \"numero\": \"123\",\n    \"cidade\": \"São Paulo\",\n    \"cep\": \"01001-000\"\n  }\n}"
+              "raw": "{\n  \"nome\": \"Erick Roberto\",\n  \"email\": \"erick.ribeiro@email.com\",\n  \"login\": \"erickribeiro\",\n  \"senha\": \"senha123\",\n  \"tipoUsuario\": \"CLIENTE\",\n  \"endereco\": {\n    \"rua\": \"Rua Tiradentes\",\n    \"numero\": \"1957\",\n    \"cidade\": \"São Bernardo do Campo\",\n    \"cep\": \"09985-265\"\n  }\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/api/v1/usuarios",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "v1", "usuarios"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "usuarios"
+              ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Cadastro inválido - e-mail duplicado",
@@ -83,25 +80,37 @@
                   "    pm.expect(jsonData.detail).to.include(\"E-mail já cadastrado\");",
                   "});"
                 ],
-                "type": "text/javascript"
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
               }
             }
           ],
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/json" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"nome\": \"João Duplicado\",\n  \"email\": \"joao.silva@email.com\",\n  \"login\": \"joaosilva2\",\n  \"senha\": \"senha123\",\n  \"tipoUsuario\": \"CLIENTE\",\n  \"endereco\": {\n    \"rua\": \"Rua das Flores\",\n    \"numero\": \"123\",\n    \"cidade\": \"São Paulo\",\n    \"cep\": \"01001-000\"\n  }\n}"
+              "raw": "{\n  \"nome\": \"Erick Roberto\",\n  \"email\": \"erick.ribeiro@email.com\",\n  \"login\": \"erickribeiro\",\n  \"senha\": \"senha123\",\n  \"tipoUsuario\": \"CLIENTE\",\n  \"endereco\": {\n    \"rua\": \"Rua Tiradentes\",\n    \"numero\": \"1957\",\n    \"cidade\": \"São Bernardo do Campo\",\n    \"cep\": \"09985-265\"\n  }\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/api/v1/usuarios",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "v1", "usuarios"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "usuarios"
+              ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Cadastro inválido - campos obrigatórios faltando",
@@ -125,7 +134,10 @@
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/json" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
             ],
             "body": {
               "mode": "raw",
@@ -133,10 +145,17 @@
             },
             "url": {
               "raw": "{{baseUrl}}/api/v1/usuarios",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "v1", "usuarios"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "usuarios"
+              ]
             }
-          }
+          },
+          "response": []
         }
       ]
     },
@@ -163,25 +182,38 @@
                   "    pm.collectionVariables.set(\"token\", jsonData.token);",
                   "}"
                 ],
-                "type": "text/javascript"
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
               }
             }
           ],
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/json" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"login\": \"joaosilva\",\n  \"senha\": \"senha123\"\n}"
+              "raw": "{\n  \"login\": \"erickribeiro\",\n  \"senha\": \"senha123\"\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/api/v1/auth/login",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "v1", "auth", "login"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Login inválido - credenciais erradas",
@@ -194,25 +226,38 @@
                   "    pm.response.to.have.status(401);",
                   "});"
                 ],
-                "type": "text/javascript"
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
               }
             }
           ],
           "request": {
             "method": "POST",
             "header": [
-              { "key": "Content-Type", "value": "application/json" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"login\": \"joaosilva\",\n  \"senha\": \"senhaErrada\"\n}"
+              "raw": "{\n  \"login\": \"erickribeiro\",\n  \"senha\": \"senhaErrada\"\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/api/v1/auth/login",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "v1", "auth", "login"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
             }
-          }
+          },
+          "response": []
         }
       ]
     },
@@ -233,36 +278,64 @@
                   "    pm.expect(pm.response.json()).to.be.an(\"array\");",
                   "});"
                 ],
-                "type": "text/javascript"
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
               }
             }
           ],
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
-              "raw": "{{baseUrl}}/api/v1/usuarios?nome=João",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "v1", "usuarios"],
-              "query": [{ "key": "nome", "value": "João" }]
+              "raw": "{{baseUrl}}/api/v1/usuarios?nome=Erick",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "usuarios"
+              ],
+              "query": [
+                {
+                  "key": "nome",
+                  "value": "Erick"
+                }
+              ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Buscar usuário por id",
           "request": {
             "method": "GET",
             "header": [
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/api/v1/usuarios/{{usuarioId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "v1", "usuarios", "{{usuarioId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "usuarios",
+                "{{usuarioId}}"
+              ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Buscar usuários sem token (erro)",
@@ -275,7 +348,9 @@
                   "    pm.response.to.have.status(403);",
                   "});"
                 ],
-                "type": "text/javascript"
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
               }
             }
           ],
@@ -283,12 +358,24 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/api/v1/usuarios?nome=João",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "v1", "usuarios"],
-              "query": [{ "key": "nome", "value": "João" }]
+              "raw": "{{baseUrl}}/api/v1/usuarios?nome=Erick",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "usuarios"
+              ],
+              "query": [
+                {
+                  "key": "nome",
+                  "value": "Erick"
+                }
+              ]
             }
-          }
+          },
+          "response": []
         }
       ]
     },
@@ -306,26 +393,42 @@
                   "    pm.response.to.have.status(200);",
                   "});"
                 ],
-                "type": "text/javascript"
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
               }
             }
           ],
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"nome\": \"João Silva Santos\",\n  \"email\": \"joao.silva@email.com\",\n  \"login\": \"joaosilva\",\n  \"endereco\": {\n    \"rua\": \"Rua Nova\",\n    \"numero\": \"456\",\n    \"cidade\": \"São Paulo\",\n    \"cep\": \"01002-000\"\n  }\n}"
+              "raw": "{\n  \"nome\": \"Erick Roberto Ribeiro\",\n  \"email\": \"erick.rribeiro@email.com\",\n  \"login\": \"erickribeiro\",\n  \"endereco\": {\n    \"rua\": \"Rua Botadentes\",\n    \"numero\": \"1897\",\n    \"cidade\": \"São Bernardo do Campo\",\n    \"cep\": \"09880-562\"\n  }\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/api/v1/usuarios/{{usuarioId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "v1", "usuarios", "{{usuarioId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "usuarios",
+                "{{usuarioId}}"
+              ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Atualizar dados - usuário inexistente (erro)",
@@ -338,26 +441,42 @@
                   "    pm.response.to.have.status(404);",
                   "});"
                 ],
-                "type": "text/javascript"
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
               }
             }
           ],
           "request": {
             "method": "PUT",
             "header": [
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"nome\": \"Usuário Fantasma\",\n  \"email\": \"fantasma@email.com\",\n  \"login\": \"fantasma\",\n  \"endereco\": {\n    \"rua\": \"Rua X\",\n    \"numero\": \"0\",\n    \"cidade\": \"Nenhuma\",\n    \"cep\": \"00000-000\"\n  }\n}"
+              "raw": "{\n  \"nome\": \"Usuário Fake\",\n  \"email\": \"faker@email.com\",\n  \"login\": \"faker\",\n  \"endereco\": {\n    \"rua\": \"Rua dos Bobos\",\n    \"numero\": \"0\",\n    \"cidade\": \"Muito engraçada\",\n    \"cep\": \"08480-040\"\n  }\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/api/v1/usuarios/999999",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "v1", "usuarios", "999999"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "usuarios",
+                "999999"
+              ]
             }
-          }
+          },
+          "response": []
         }
       ]
     },
@@ -375,26 +494,43 @@
                   "    pm.response.to.have.status(204);",
                   "});"
                 ],
-                "type": "text/javascript"
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
               }
             }
           ],
           "request": {
             "method": "PATCH",
             "header": [
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"senhaAtual\": \"senha123\",\n  \"novaSenha\": \"novaSenha456\"\n}"
+              "raw": "{\n  \"senhaAtual\": \"senha123\",\n  \"novaSenha\": \"novaSenha123\"\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/api/v1/usuarios/{{usuarioId}}/senha",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "v1", "usuarios", "{{usuarioId}}", "senha"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "usuarios",
+                "{{usuarioId}}",
+                "senha"
+              ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Trocar senha - senha atual incorreta (erro)",
@@ -407,26 +543,43 @@
                   "    pm.response.to.have.status(400);",
                   "});"
                 ],
-                "type": "text/javascript"
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
               }
             }
           ],
           "request": {
             "method": "PATCH",
             "header": [
-              { "key": "Content-Type", "value": "application/json" },
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"senhaAtual\": \"senhaErrada\",\n  \"novaSenha\": \"outraSenha789\"\n}"
+              "raw": "{\n  \"senhaAtual\": \"senhaErrada\",\n  \"novaSenha\": \"outraSenha123\"\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/api/v1/usuarios/{{usuarioId}}/senha",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "v1", "usuarios", "{{usuarioId}}", "senha"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "usuarios",
+                "{{usuarioId}}",
+                "senha"
+              ]
             }
-          }
+          },
+          "response": []
         }
       ]
     },
@@ -444,21 +597,34 @@
                   "    pm.response.to.have.status(204);",
                   "});"
                 ],
-                "type": "text/javascript"
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
               }
             }
           ],
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/api/v1/usuarios/{{usuarioId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "v1", "usuarios", "{{usuarioId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "usuarios",
+                "{{usuarioId}}"
+              ]
             }
-          }
+          },
+          "response": []
         },
         {
           "name": "Excluir usuário - já excluído / inexistente (erro)",
@@ -478,16 +644,41 @@
           "request": {
             "method": "DELETE",
             "header": [
-              { "key": "Authorization", "value": "Bearer {{token}}" }
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
             ],
             "url": {
               "raw": "{{baseUrl}}/api/v1/usuarios/{{usuarioId}}",
-              "host": ["{{baseUrl}}"],
-              "path": ["api", "v1", "usuarios", "{{usuarioId}}"]
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "usuarios",
+                "{{usuarioId}}"
+              ]
             }
-          }
+          },
+          "response": []
         }
       ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "usuarioId",
+      "value": ""
     }
   ]
 }
